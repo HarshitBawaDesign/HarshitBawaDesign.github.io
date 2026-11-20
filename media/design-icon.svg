@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78.32 69.85">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #bbb7b6;
+      }
+    </style>
+  </defs>
+  <g id="laptop_with_pointer_icon_display_with_clicking_mouse_icon_vector" data-name="laptop with pointer icon, display with clicking mouse icon vector">
+    <g>
+      <path class="cls-1" d="M6.74,53.19h64.84c.33,0,.6-.27.6-.6V11.87c0-1.63-1.32-2.95-2.95-2.95H9.41c-1.81,0-3.27,1.46-3.27,3.27v40.4c0,.33.27.6.6.6ZM9.12,12.19c0-.16.13-.29.29-.29h59.79v38.3H9.12V12.19Z"/>
+      <path class="cls-1" d="M50.47,55.4c-.33,1.08-1.34,1.86-2.53,1.86h-17.68c-1.19,0-2.2-.78-2.53-1.86H0c0,3.06,2.48,5.53,5.53,5.53h67.25c3.06,0,5.53-2.48,5.53-5.53h-27.85Z"/>
+      <path class="cls-1" d="M44.41,32.52l5.4-2.77c.48-.25.4-.95-.12-1.09l-14.97-4.01c-.44-.12-.84.28-.72.72l4,14.94c.14.52.86.59,1.1.11l2.62-5.31,6.81,6.73c.73.72,1.91.72,2.64-.02h0c.72-.73.72-1.91-.02-2.64l-6.73-6.65Z"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hobi — Harshit Bawa · Animator, Illustrator & Designer</title>
+<meta name="description" content="Portfolio of Harshit Bawa (hobi): animator, illustrator and interactive media designer in Toronto. UX/UI, motion, branding, illustration and video.">
+<meta property="og:title" content="hobi — Harshit Bawa">
+<meta property="og:description" content="Animator · Illustrator · Designer. Interactive Media Design at Seneca Polytechnic, Toronto.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1D1D1B">
+<link rel="icon" href="media/hobi-side-logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body class="locked">
+
+<!-- PRELOADER: Harshit's own After Effects animation, untouched -->
+<div id="loader" aria-hidden="true">
+  <video id="wmVideo" src="media/wordmark.mp4" muted playsinline preload="auto"></video>
+  <button id="skip">Skip intro</button>
+</div>
+
+<div id="cursor"><span><img src="media/star-icon.svg" alt="">VIEW</span></div>
+
+<!-- HEADER (his pill header) -->
+<header class="header" id="header">
+  <div class="left">
+    <a href="#top" aria-label="hobi home"><img class="wordmark" src="media/hobi-text-logo.svg" alt="hobi"></a>
+    <div class="status"><i class="dot"></i>Available for work</div>
+  </div>
+  <svg class="face" id="navFace" viewBox="%%VB_I%%" aria-hidden="true">%%ICON%%</svg>
+  <nav id="nav">
+    <span class="status clock" id="clock">Toronto</span>
+    <a href="#work">Work</a><a href="#about">About me</a><a href="#contact">Contact</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><img src="media/star-icon.svg" alt=""></button>
+</header>
+
+<main id="top">
+  <!-- HERO: the face intro, then work bursts out of it on scroll -->
+  <section class="hero" id="hero">
+    <div class="stick">
+      <div class="burst" id="burst"></div>
+      <svg id="heroFace" viewBox="%%VB_I%%" aria-label="hobi mascot"><circle class="ring" r="0"/><g class="faceRoot">%%ICON%%</g></svg>
+      <div class="roles">
+        <img class="three" src="media/three-stars-logo.svg" alt="">
+        <b>Animator · Illustrator · Designer</b><br>
+        Interactive Media Design<br>Seneca Polytechnic · Toronto
+      </div>
+      <div class="name">
+        <div class="hello">Hello! I'm</div>
+        <h1><span><i>Harshit</i></span><span class="pink"><i>Bawa</i></span></h1>
+      </div>
+      <div class="tag" id="tag"><p>From the <em>first sketch</em><br>to the <em>final frame.</em></p></div>
+      <div class="scrollcue"><img src="media/star-icon.svg" alt="">Scroll</div>
+    </div>
+  </section>
+
+  <!-- STATEMENT -->
+  <section class="statement">
+    <div class="wrap">
+      <p id="statement">I'm *hobi*, a designer, illustrator and animator with four years of freelance work. Curious, warm and always chasing the spark of a good idea. I build *brands*, *apps*, *motion* and *stories* that feel alive.</p>
+      <div class="sig reveal"><img src="media/hobi-side-logo.svg" alt="">Harshit Bawa · Toronto, ON</div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="work" id="work">
+    <div class="wrap">
+      <div class="top">
+        <div><div class="kicker reveal"><img src="media/star-icon.svg" alt="">Selected work 2022–2026</div><h2 class="h-pink reveal">Work</h2></div>
+        <div class="filters" id="filters" role="tablist">
+          <button data-f="all" class="on">All</button>
+          <button data-f="ux">UX/UI</button>
+          <button data-f="motion">Motion</button>
+          <button data-f="brand">Branding & Print</button>
+          <button data-f="illus">Illustration</button>
+          <button data-f="video">Video</button>
+        </div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true"><div class="track" id="mq"></div></div>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="head"><h2 class="h-pink reveal">Services</h2><p class="reveal">Four things I love doing, often all in the same project.</p></div>
+      <div class="svc">
+        <div class="card reveal"><div class="ic"><img src="media/illustration-icon.svg" alt=""></div><h3>Illustration</h3><p>Over 10 years of drawing: sketchbooks, painted portraits, vector posters and backgrounds.</p><ul><li>Procreate</li><li>Photoshop</li><li>Illustrator</li><li>Traditional</li></ul></div>
+        <div class="card reveal"><div class="ic"><img src="media/design-icon.svg" alt=""></div><h3>Design</h3><p>Brand identities, editorial layouts and UX/UI, delivered to what the client actually needs.</p><ul><li>Figma</li><li>InDesign</li><li>Branding</li><li>UX research</li></ul></div>
+        <div class="card reveal"><div class="ic"><img src="media/animation-icon.svg" alt=""></div><h3>Animation</h3><p>Motion graphics, logo reveals, kinetic type and 2D animation. Animator on indie short films.</p><ul><li>After Effects</li><li>Toon Boom</li><li>Premiere</li></ul></div>
+        <div class="card reveal"><div class="ic"><img src="media/3d-icon.svg" alt=""></div><h3>3D</h3><p>Over five years of 3D: modelling, look-dev and renders for product and motion work.</p><ul><li>Blender</li><li>Maya</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT (his About page, carried over) -->
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="intro">
+        <div class="reveal">
+          <img class="wm" src="media/hobi-text-logo2.svg" alt="hobi">
+          <h2>HELLO! I am Harshit Bawa</h2>
+          <p>An illustrator, animator and interactive media designer, born and raised in India, now in Toronto. My brand, hobi, is a wordmark where the star stands for creativity and the smile for warmth, plus a mascot that looks a lot like me.</p>
+        </div>
+        <div class="faceWrap reveal"><img src="media/hobi-side-logo.svg" alt="hobi mascot"></div>
+      </div>
+      <div class="cards">
+        <div class="card reveal">
+          <div class="pill">Experience</div>
+          <div class="exp">
+            <div><div class="yr"><b>2022</b><i></i><b>Now</b></div><h4>Freelance Graphic Designer & Animator</h4><p>Self-employed</p><ul><li>Graphic design, illustration and motion for clients</li><li>From first sketch through revisions to final files</li></ul></div>
+            <div><div class="yr"><b>2025</b><i></i><b>Now</b></div><h4>Event Staff & Front Desk</h4><p>Seneca Student Federation, Toronto</p></div>
+            <div><div class="yr"><b>2023</b><i></i><b>2025</b></div><h4>Studio Assistant</h4><p>John Tattoo Studio</p></div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:40px">
+          <div class="card reveal">
+            <div class="pill">Education</div>
+            <div class="exp"><div><h4 style="font-size:22px">Seneca Polytechnic</h4><p>INM · Interactive Media Design</p><p>2025 – 2027</p></div></div>
+          </div>
+          <div class="card reveal">
+            <div class="pill">Software</div>
+            <div class="sw" id="sw"></div>
+          </div>
+        </div>
+      </div>
+      <div class="why">
+        <div><h2 class="h-pink reveal">Why hire me?</h2>
+          <div class="words reveal" style="margin-top:22px"><span>Creative</span><span>Curious</span><span>Calm</span></div></div>
+        <div class="card reveal">
+          <p>I have 5+ years of experience in illustration and art, working with multiple clients. I understand that I'm not just making artwork; I'm providing a service that serves the client's needs.</p>
+          <p>I'm organized, have a growth mindset, I'm highly adaptable, and I value teamwork. That's what lets me solve problems efficiently.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT (his contact page) -->
+  <section class="contact" id="contact">
+    <div class="wrap grid2">
+      <div>
+        <h2 class="reveal">Let's connect!!</h2>
+        <p class="lede reveal">Got a project, a role or a wild idea? Send a note or email me at <b style="color:#fff">bawaharshit75@gmail.com</b>.</p>
+        <div class="reveal" style="display:flex;gap:14px;flex-wrap:wrap">
+          <button class="btn" id="copyEmail">Copy email</button>
+          <a class="btn ghost" href="media/Harshit_Bawa_Resume.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+        </div>
+      </div>
+      <form class="card reveal" id="form" novalidate>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <label>First name <i>*</i><input name="first" placeholder="Enter your first name" required></label>
+          <label>Last name <i>*</i><input name="last" placeholder="Enter your last name" required></label>
+        </div>
+        <label>Email <i>*</i><input name="email" type="email" placeholder="Enter your email address" required></label>
+        <label>Message <i>*</i><textarea name="msg" placeholder="Enter your message" required></textarea></label>
+        <div class="err" id="err"></div>
+        <button class="btn" type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="links">
+        <div><a href="#work">Portfolio</a><a href="#about">About me</a><a href="#contact">Contact</a></div>
+        <div><a href="https://www.instagram.com/blixxhobi/" target="_blank" rel="noopener">Instagram</a><a href="https://www.behance.net/harshitbawa4" target="_blank" rel="noopener">Behance</a><a href="https://www.youtube.com/@blixxhobi" target="_blank" rel="noopener">YouTube</a></div>
+        <div>© 2026 hobi · Harshit Bawa</div>
+      </div>
+      <img class="giant" src="media/hobi-text-logo.svg" alt="">
+    </div>
+  </footer>
+</main>
+
+<!-- dock -->
+<div class="dock" id="dock">
+  <button class="pinkbg" id="dockMail" aria-label="Copy email"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg><span class="tip">Copy email</span></button>
+  <a href="media/Harshit_Bawa_Resume.pdf" target="_blank" rel="noopener" aria-label="Résumé"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg><span class="tip">Résumé</span></a>
+  <span class="sep"></span>
+  <a href="https://www.behance.net/harshitbawa4" target="_blank" rel="noopener" aria-label="Behance"><svg viewBox="0 0 24 24"><path d="M3 6h5a3 3 0 0 1 0 6H3zM3 12h6a3 3 0 0 1 0 6H3zM14 7h5M13 14h8a4 4 0 1 0-1 3"/></svg><span class="tip">Behance</span></a>
+  <a href="https://www.instagram.com/blixxhobi/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg><span class="tip">Instagram</span></a>
+  <a href="https://www.youtube.com/@blixxhobi" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></svg><span class="tip">YouTube</span></a>
+  <span class="sep"></span>
+  <a href="#contact" aria-label="Contact"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><span class="tip">Say hi</span></a>
+</div>
+
+<div class="sent" id="sent"><div class="card"><h3>Thank you!</h3><p id="sentMsg">Your message is ready. I'll get back to you soon.</p><button class="btn" id="sentOk">Close</button></div></div>
+
+<!-- case study -->
+<div id="case" role="dialog" aria-modal="true" aria-label="Case study">
+  <button class="close" id="caseClose" aria-label="Close"><img src="media/star-icon.svg" alt=""></button>
+  <div id="caseInner"></div>
+</div>
+
+<div id="lb"><button class="x" id="lbX">✕</button><button class="nav prev" id="lbP">‹</button><div class="inner" id="lbIn"></div><button class="nav next" id="lbN">›</button></div>
+
+<audio id="ding" src="media/confirmation-sound.mp3" preload="auto"></audio>
+<script src="js/projects.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>
