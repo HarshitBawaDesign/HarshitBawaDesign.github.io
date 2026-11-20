@@ -122,9 +122,6 @@ const navFace = makeFace($('#navFace'));
   (function loop() { m.x += (m.tx - m.x) * .15; m.y += (m.ty - m.y) * .15; el.style.transform = `translate(${m.x}px,${m.y}px) rotate(${m.x*.25}deg)`; requestAnimationFrame(loop); })();
   el.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
 })();
-const clock = $('#clock');
-const tick = () => clock.textContent = 'Toronto, ON · ' + new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Toronto', hour: 'numeric', minute: '2-digit' }).format(new Date());
-tick(); setInterval(tick, 15000);
 $('#burger').addEventListener('click', () => { $('#nav').classList.toggle('open'); $('#burger').classList.toggle('open'); });
 $$('#nav a').forEach(a => a.addEventListener('click', () => { $('#nav').classList.remove('open'); $('#burger').classList.remove('open'); }));
 let lastY = scrollY;
@@ -406,26 +403,9 @@ function onScroll() {
 }
 addEventListener('scroll', onScroll, { passive: true }); addEventListener('resize', onScroll);
 
-/* ======================= preloader → page ======================= */
-const loader = $('#loader'), vid = $('#wmVideo');
-let started = false;
-function start() {
-  if (started) return; started = true;
-  loader.classList.add('hide'); document.body.classList.remove('locked');
-  setTimeout(() => loader.remove(), 600);
-  hero.classList.add('ready');
-  heroFace.play(450);
-  onScroll(); route();
-}
-const seen = store.get('hobi-intro-seen');
-if (seen || reduce || location.hash.length > 1) start();
-else {
-  store.set('hobi-intro-seen', '1');
-  vid.addEventListener('ended', start);
-  $('#skip').addEventListener('click', start);
-  const p = vid.play(); if (p && p.catch) p.catch(() => setTimeout(start, 200));
-  setTimeout(() => { if (vid.paused && vid.currentTime === 0) start(); }, 2500);
-  setTimeout(start, 6500); // never trap the visitor
-}
+/* ======================= start ======================= */
+hero.classList.add('ready');
+heroFace.play(450);
+onScroll(); route();
 onScroll();
 })();
