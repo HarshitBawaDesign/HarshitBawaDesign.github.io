@@ -346,3 +346,13 @@ svg [data-r=line]{fill:none;stroke:var(--ink);stroke-linecap:round;stroke-linejo
 svg [data-r=eye],svg [data-r=dot],svg [data-r=spark]{fill:var(--ink)}
 svg .ring{fill:none;stroke:var(--pink);stroke-linecap:round}
 .header .face{overflow:visible;cursor:pointer}
+
+/* cinematic stills under a video */
+.cs-stills h3{font-size:clamp(18px,1.6vw,24px);font-weight:900;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.cs-stills h3::before{content:"";width:28px;height:3px;background:var(--pink);border-radius:2px}
+.cs-stills .cs-gal{gap:10px}
+.cs-stills .cs-gal img{border-radius:14px;aspect-ratio:16/9;object-fit:cover;transition:transform .5s var(--ease)}
+.cs-stills .cs-gal.tallgal img{aspect-ratio:9/16}
+.cs-stills .cs-gal img:hover{transform:scale(1.03)}
+.cs-gal.c4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:760px){.cs-gal.c4{grid-template-columns:1fr 1fr}.cs-stills .cs-gal.c3{grid-template-columns:1fr 1fr}}
