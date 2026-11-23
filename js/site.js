@@ -138,7 +138,7 @@ heroFaceSvg.addEventListener('click', () => heroFace.play());
 
 // chips that burst out of the face on scroll
 const burst = $('#burst');
-const chipSrc = ['dd-01.webp', 'tn-poster.webp', 'cf-scene-01.webp', 'wp-4-final.webp', 'jj-mock-1.webp', 'fl-05.webp', 'ss-film-poster.webp', 'il-garden.webp', 'tn-cover-dark.webp', 'sy-poster.webp', 'pt-process.webp', 'mp-01.webp'];
+const chipSrc = ['dd-01.webp', 'tn-poster.webp', 'cf-scene-01.webp', 'wp-4-final.webp', 'jj-mock-1.webp', 'fl-05.webp', 'vx-a1-poster.webp', 'vx-ps5-poster.webp', 'tn-cover-dark.webp', 'sy-poster.webp', 'pt-process.webp', 'mp-01.webp'];
 const tallSet = new Set(['tn-poster.webp', 'pt-process.webp', 'tn-cover-dark.webp']);
 const chips = chipSrc.map((s, i) => {
   const d = document.createElement('div'); d.className = 'chip' + (tallSet.has(s) ? ' tall' : '');
@@ -192,7 +192,7 @@ const items = [...PROJECTS.map(p => ({ ...p, case: true })), ...EXTRAS];
 const order = []; let ei = PROJECTS.length;
 PROJECTS.forEach((p, i) => { order.push(i); if (i % 2 === 1 && ei < items.length) order.push(ei++); });
 while (ei < items.length) order.push(ei++);
-const catLabel = { ux: 'UX/UI', motion: 'Motion', brand: 'Branding & Print', illus: 'Illustration', video: 'Video' };
+const catLabel = { vfx: 'VFX', ux: 'UX/UI', motion: 'Motion', brand: 'Branding & Print', illus: 'Illustration', video: 'Video' };
 order.forEach(idx => {
   const it = items[idx];
   const t = document.createElement(it.case ? 'a' : 'div');
@@ -247,7 +247,7 @@ if (fine) {
 } else cur.remove();
 
 /* ======================= marquee (velocity reactive) ======================= */
-const words2 = ['Illustration', 'Animation', 'UX/UI', 'Branding', 'Motion', 'After Effects', 'Figma', 'Procreate', 'Blender', 'Toon Boom', 'Photoshop', 'InDesign', 'Video'];
+const words2 = ['VFX', 'Compositing', 'Illustration', 'Animation', 'UX/UI', 'Branding', 'Motion', 'After Effects', 'Figma', 'Procreate', 'Blender', 'Toon Boom', 'Photoshop', 'InDesign', 'Video'];
 const row = '<div class="row">' + words2.map((w, i) => `<span class="${i % 3 === 2 ? 'o' : ''}">${w}</span><img src="media/star-icon.svg" alt="">`).join('') + '</div>';
 const mq = $('#mq'); mq.innerHTML = row + row;
 let mqX = 0, vel = 0, prevY = scrollY;
@@ -312,7 +312,7 @@ function block(s) {
     case 'hero': return `<div class="cs-hero-img reveal"><img src="${s.src}" alt=""></div>`;
     case 'gallery': return `<div class="cs-gal c${s.cols || 1}">${s.items.map(src => `<img class="reveal" src="${src}" alt="" loading="lazy">`).join('')}</div>`;
     case 'video': return `<div class="reveal"><div class="cs-vid${s.portrait ? ' portrait' : ''}"><video src="${s.src}" controls playsinline preload="metadata"></video></div>${s.caption ? `<div class="cs-cap">${s.title ? `<b style="color:#fff">${s.title}</b> · ` : ''}${s.caption}</div>` : ''}</div>`;
-    case 'videos': return `<div class="cs-vids">${s.items.map(v => `<div class="reveal"><div class="cs-vid${v.portrait ? ' portrait' : ''}"><video src="${v.src}" controls playsinline preload="metadata"></video></div><div class="cs-cap">${v.caption}</div></div>`).join('')}</div>`;
+    case 'videos': return `<div class="cs-vids">${s.items.map(v => `<div class="reveal"><div class="cs-vid${v.portrait ? ' portrait' : ''}"><video src="${v.src}"${v.poster ? ` poster="${v.poster}"` : ''} controls playsinline preload="metadata"></video></div><div class="cs-cap">${v.caption}</div></div>`).join('')}</div>`;
     case 'stats': return `<div class="cs-stats">${s.items.map(([n, l]) => `<div class="card reveal"><b data-count="${n}">${n}</b><span>${l}</span></div>`).join('')}</div>`;
     case 'steps': return `<div class="cs-steps reveal"><h3>${s.title}</h3><ol>${s.items.map(([a, b]) => `<li><b>${a}</b><span>${b}</span></li>`).join('')}</ol></div>`;
     case 'compare': return `<div class="cs-compare reveal" data-compare><img src="${s.before}" alt="${s.labels[0]}"><div class="after"><img src="${s.after}" alt="${s.labels[1]}"></div><div class="bar"><i><img src="media/star-icon.svg" alt=""></i></div><span class="lab" style="left:16px">${s.labels[0]}</span><span class="lab" style="right:16px">${s.labels[1]}</span></div>`;
