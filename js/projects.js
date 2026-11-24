@@ -4,8 +4,8 @@
    Fields:
      slug       url hash (#slug opens the case study)
      title      display title
-     cat        filter keys: ux · motion · brand · illus · video
-     size       grid tile: "xl" | "wide" | "tall" | "sq"
+     cat        filter keys: ux · motion (Motion Graphics; "vfx" is folded into it) · brand · illus · video
+     size       (ignored now: tiles size themselves from the cover's real aspect ratio, see js/ratios.js)
      cover      tile image; loop = muted hover video (optional)
      year, role, tools, team, note
      blurb      one-liner on the tile
@@ -365,8 +365,5 @@ window.EXTRAS = [
   { title: "Community Garden", cat: ["illus"], size: "wide", cover: M("il-garden.webp"), note: "Photoshop" },
   { title: "Low-poly portrait", cat: ["illus"], size: "tall", cover: M("il-lowpoly.webp"), note: "Illustrator" },
   { title: "Film posters", cat: ["illus"], size: "tall", cover: M("il-poster-noface.webp"), gallery: [M("il-poster-noface.webp"), M("il-poster-hp.webp"), M("il-poster-coco.webp")], note: "Illustrator · fan art" },
-  { title: "Sketchbook: hands", cat: ["illus"], size: "sq", cover: M("sk-hands.webp"), gallery: [M("sk-hands.webp"), M("sk-kiss.webp"), M("sk-david.webp")], note: "Ink" },
-  { title: "Painted portrait", cat: ["illus"], size: "tall", cover: M("pt-process.webp"), gallery: [M("pt-process.webp"), M("pt-character.webp")], note: "Digital painting · process" },
-  { title: "Starry Night cases", cat: ["illus"], size: "sq", cover: M("pt-phonecase.webp"), note: "Hand-painted" },
   { title: "Art of Stoicism", cat: ["brand"], size: "tall", cover: M("pr-manifesto.webp"), note: "Typographic manifesto poster" },
 ];

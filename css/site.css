@@ -133,7 +133,8 @@ section{position:relative}
 .filters button:hover{color:var(--white)}
 .filters button.on{background:var(--pink);color:var(--white);box-shadow:0 6px 0 var(--grey);transform:translateY(-3px)}
 .filters button sup{font-size:10px;margin-left:4px;opacity:.7}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(150px,15vw,230px);grid-auto-flow:dense;gap:26px 22px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:6px;grid-auto-flow:dense;gap:0 22px;align-items:start}
+.grid .tile{align-self:start}
 .tile{position:relative;border-radius:var(--r-lg);background:var(--panel);box-shadow:var(--press-sm);overflow:hidden;cursor:none;transform-style:preserve-3d;
   transition:box-shadow .3s,opacity .4s,filter .4s}
 .tile.sq{grid-column:span 1;grid-row:span 2}
@@ -159,8 +160,8 @@ section{position:relative}
 .tile.texty .media{display:grid;place-items:center;background:var(--pink);text-align:center;padding:20px}
 .tile.texty .media b{font-size:clamp(22px,2.4vw,34px);line-height:1;font-weight:900;color:var(--ink)}
 .tile.texty .media small{display:block;margin-top:10px;font-size:12px;letter-spacing:.2em;color:var(--ink);opacity:.7}
-@media (max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}.tile.xl{grid-column:span 2}}
-@media (max-width:560px){.grid{grid-template-columns:1fr;grid-auto-rows:120px}.tile.sq,.tile.wide,.tile.tall,.tile.xl{grid-column:span 1}.tile.sq,.tile.wide{grid-row:span 2}.tile.tall,.tile.xl{grid-row:span 3}}
+@media (max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.grid{grid-template-columns:1fr}}
 
 /* custom cursor */
 #cursor{position:fixed;left:0;top:0;z-index:150;pointer-events:none;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--pink);
@@ -357,3 +358,59 @@ svg .ring{fill:none;stroke:var(--pink);stroke-linecap:round}
 .cs-stills .cs-gal img:hover{transform:scale(1.03)}
 .cs-gal.c4{grid-template-columns:repeat(4,1fr)}
 @media (max-width:760px){.cs-gal.c4{grid-template-columns:1fr 1fr}.cs-stills .cs-gal.c3{grid-template-columns:1fr 1fr}}
+
+/* ---------- gallery preview on the main page ---------- */
+.gprev{padding:10vh 0 12vh}
+.gprev .top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:56px}
+.gprev .top p{color:var(--grey);font-size:clamp(16px,1.3vw,19px);max-width:380px}
+.gwall{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(18px,2.4vw,36px);align-items:center}
+.gp{display:flex;flex-direction:column;align-items:center;gap:14px;text-decoration:none;position:relative;padding-top:26px}
+.gp::before{content:"";position:absolute;top:0;left:50%;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;background:var(--grey)}
+.gp::after{content:"";position:absolute;top:4px;left:22%;right:22%;height:24px;
+  background:linear-gradient(to top right,transparent calc(50% - 1px),rgba(187,183,182,.5) 50%,transparent calc(50% + 1px)) left/50% 100% no-repeat,
+             linear-gradient(to top left,transparent calc(50% - 1px),rgba(187,183,182,.5) 50%,transparent calc(50% + 1px)) right/50% 100% no-repeat}
+.gp .fr{display:block;width:100%;transition:transform .45s var(--ease)}
+.gp:nth-child(odd) .fr{transform:rotate(-1deg)}.gp:nth-child(even) .fr{transform:rotate(.8deg)}
+.gp:hover .fr{transform:translateY(-8px) rotate(0)}
+.gp .mat{display:block;overflow:hidden}
+.gp img{width:100%;height:auto;display:block}
+.gp b{font-size:13px;font-weight:700;color:var(--grey);text-align:center;transition:color .3s}
+.gp:hover b{color:var(--pink)}
+.gp .f-gold{padding:9px;border-radius:3px;background:linear-gradient(135deg,#8a6a2b,#e7c977 22%,#a8823a 45%,#f2dc95 62%,#7d5e24 85%,#c9a659);box-shadow:inset 0 0 0 2px rgba(60,40,10,.55),0 16px 30px rgba(0,0,0,.55)}
+.gp .f-gold .mat{padding:6px;background:#efe8da}
+.gp .f-black{padding:6px;background:#0d0d0c;box-shadow:inset 0 0 0 1px #333,0 16px 30px rgba(0,0,0,.55)}
+.gp .f-black .mat{padding:12px;background:#f4f1ea}
+.gp .f-wood{padding:9px;border-radius:3px;background:repeating-linear-gradient(100deg,#6b4423 0 6px,#7d5130 6px 9px,#5d3a1d 9px 15px,#86593a 15px 18px);box-shadow:0 16px 30px rgba(0,0,0,.55)}
+.gp .f-white{padding:5px;background:#f7f5f0;box-shadow:0 16px 30px rgba(0,0,0,.5)}
+.gp .f-white .mat{padding:12px;background:#fff}
+.gp .f-pink{padding:8px;background:var(--pink);border-radius:14px;box-shadow:0 8px 0 var(--grey)}
+.gp .f-pink .mat{border-radius:8px}
+.gcta{display:flex;justify-content:center;margin-top:60px}
+.gcta .btn span{transition:transform .3s var(--ease)}
+.gcta .btn:hover span{transform:translateX(5px)}
+@media (max-width:1000px){.gwall{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:560px){.gwall{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- about: intro card with photo slot ---------- */
+.about .intro.card{display:grid;grid-template-columns:minmax(220px,.8fr) 1.4fr;gap:clamp(24px,4vw,56px);align-items:center;margin-bottom:56px}
+.about .photo{aspect-ratio:4/5;border-radius:var(--r-lg);background:var(--ink);border:2px dashed rgba(187,183,182,.35);display:grid;place-items:center;overflow:hidden}
+.about .photo img{width:100%;height:100%;object-fit:cover}
+.about .photo span{display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--grey);font-size:14px;letter-spacing:.14em;text-transform:uppercase}
+.about .photo span img{width:34px;height:auto;opacity:.6}
+.about .intro .txt .pill{display:inline-block;margin-bottom:18px}
+.about .intro h2{font-size:clamp(30px,3.2vw,46px);font-weight:800;line-height:1.05}
+.about .intro h2 span{color:var(--pink)}
+.about .intro p{color:#e2dfde;font-size:clamp(17px,1.35vw,20px);line-height:1.6;max-width:620px;margin-top:14px}
+.about .intro .brand{display:flex;align-items:center;gap:22px;margin-top:26px;padding-top:24px;border-top:2px solid rgba(255,255,255,.08)}
+.about .intro .brand .wm{width:clamp(110px,12vw,160px);flex:none;margin:0}
+.about .intro .brand p{margin:0;font-size:clamp(16px,1.2vw,18px)}
+/* readable body text across About + Why hire me */
+.exp h4{font-size:20px}
+.exp p{font-size:16px}
+.exp ul{font-size:16px;line-height:1.55}
+.sw div{font-size:17px}
+.why .card p{font-size:clamp(17px,1.35vw,20px);line-height:1.6;font-style:normal}
+@media (max-width:860px){.about .intro.card{grid-template-columns:1fr}.about .photo{max-width:340px;width:100%;margin:0 auto}.about .intro .brand{flex-direction:column;align-items:flex-start}}
+/* five service cards */
+@media (min-width:1201px){.svc{grid-template-columns:repeat(5,1fr)}}
+@media (min-width:1001px) and (max-width:1200px){.svc{grid-template-columns:repeat(3,1fr)}}

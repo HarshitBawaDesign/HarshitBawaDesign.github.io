@@ -42,9 +42,15 @@ function makeFace(svg, opts = {}) {
   const dots = $$('[data-r=dot]', root).map(el => ({ el, cx: +el.getAttribute('cx'), cy: +el.getAttribute('cy') }));
   const spark = $('[data-r=spark]', root), spb = spark.getBBox(), spc = { x: spb.x + spb.width/2, y: spb.y + spb.height/2 };
   const smile = lines.find(l => l.el.getAttribute('d').startsWith('M92.62'));
+  const brows = lines.filter(l => /^M(92\.91|37\.65)/.test(l.el.getAttribute('d'))).map(l => l.el);
   const ring = $('.ring', svg);
   const st = { look: { x: 0, y: 0 }, target: { x: 0, y: 0 }, blink: 1, eyeScale: 1, alive: !opts.intro, tok: { dead: false } };
-  const drawEyes = () => eyes.forEach(e => e.el.setAttribute('transform', `translate(${st.look.x} ${st.look.y}) ` + scaleAbout(e.cx, e.cy, st.eyeScale, st.eyeScale * st.blink)));
+  const drawEyes = () => {
+    eyes.forEach(e => e.el.setAttribute('transform', `translate(${st.look.x} ${st.look.y}) ` + scaleAbout(e.cx, e.cy, st.eyeScale, st.eyeScale * st.blink)));
+    // brows ride along with the eyes and lift a little when looking up
+    const lift = Math.min(0, st.look.y) * .9;
+    brows.forEach(b => b.setAttribute('transform', `translate(${st.look.x * .55} ${st.look.y * .35 + lift})`));
+  };
 
   function hide() {
     [sil, shadow].forEach(el => el.setAttribute('transform', scaleAbout(fc.x, fc.y, 0)));
@@ -100,8 +106,9 @@ function makeFace(svg, opts = {}) {
     await tween(700, (t, raw) => spark.setAttribute('transform', `rotate(${90*t} ${spc.x} ${spc.y}) ` + scaleAbout(spc.x, spc.y, 1 + Math.sin(raw*Math.PI)*.6)), E.inOut3); } })();
   addEventListener('pointermove', e => {
     const r = svg.getBoundingClientRect(), cx = r.left + r.width/2, cy = r.top + r.height*.6;
-    const dx = e.clientX - cx, dy = e.clientY - cy, d = Math.hypot(dx, dy) || 1, k = Math.min(1, d / 400);
-    st.target = { x: dx/d * 3.2 * k, y: dy/d * 2.4 * k };
+    // follows the cursor anywhere on the page: strength scales with distance across the viewport
+    const dx = e.clientX - cx, dy = e.clientY - cy, d = Math.hypot(dx, dy) || 1, k = Math.min(1, d / (Math.min(innerWidth, innerHeight) * .45));
+    st.target = { x: dx/d * 5.2 * k, y: dy/d * 3.8 * k };
   });
   (function loop() { st.look.x += (st.target.x - st.look.x) * .12; st.look.y += (st.target.y - st.look.y) * .12; if (st.alive) drawEyes(); requestAnimationFrame(loop); })();
   svg.addEventListener('mouseenter', wiggle);
@@ -192,7 +199,9 @@ const items = [...PROJECTS.map(p => ({ ...p, case: true })), ...EXTRAS];
 const order = []; let ei = PROJECTS.length;
 PROJECTS.forEach((p, i) => { order.push(i); if (i % 2 === 1 && ei < items.length) order.push(ei++); });
 while (ei < items.length) order.push(ei++);
-const catLabel = { vfx: 'VFX', ux: 'UX/UI', motion: 'Motion', brand: 'Branding & Print', illus: 'Illustration', video: 'Video' };
+const catLabel = { ux: 'UX/UI', motion: 'Motion Graphics', brand: 'Branding & Print', illus: 'Illustration', video: 'Video' };
+// VFX and Motion are one category now: Motion Graphics
+items.forEach(it => { it.cat = [...new Set(it.cat.map(c => c === 'vfx' ? 'motion' : c))]; });
 order.forEach(idx => {
   const it = items[idx];
   const t = document.createElement(it.case ? 'a' : 'div');
@@ -209,6 +218,23 @@ order.forEach(idx => {
     `<div class="meta"><div><h3>${it.title}</h3><p>${it.blurb || it.note || ''}</p></div><span class="yr">${it.year || ''}</span></div>`;
   grid.appendChild(t);
 });
+// masonry: every tile takes the real proportions of its cover, so nothing is squished or awkwardly cropped
+const ROW = 6;
+function layoutGrid() {
+  const cs = getComputedStyle(grid), cols = cs.gridTemplateColumns.split(' ').length, gap = parseFloat(cs.columnGap) || 0;
+  const colW = (grid.clientWidth - gap * (cols - 1)) / cols, rowGap = gap * 1.1;
+  $$('.tile', grid).forEach(t => {
+    const it = items[+t.dataset.idx];
+    let ar = (typeof RATIOS !== 'undefined' && RATIOS[it.cover]) || (it.textTile ? .8 : 1);
+    ar = Math.min(2.1, Math.max(.62, ar));
+    const span = cols >= 2 && ar >= 1.2 ? 2 : 1, w = span * colW + (span - 1) * gap, h = w / ar;
+    t.style.gridColumn = `span ${span}`;
+    t.style.gridRow = `span ${Math.ceil((h + rowGap) / ROW)}`;
+    t.style.height = h + 'px';
+  });
+}
+layoutGrid();
+let lgT; addEventListener('resize', () => { clearTimeout(lgT); lgT = setTimeout(layoutGrid, 120); });
 // counts on filters
 $$('#filters button').forEach(b => { const f = b.dataset.f; const n = f === 'all' ? items.length : items.filter(i => i.cat.includes(f)).length; b.insertAdjacentHTML('beforeend', `<sup>${n}</sup>`); });
 // hover: play loops, 3D tilt
@@ -260,8 +286,16 @@ let mqX = 0, vel = 0, prevY = scrollY;
   requestAnimationFrame(loop);
 })();
 
+/* ======================= gallery preview (full wall lives on gallery.html) ======================= */
+const GPREV = [
+  ['ga-forest', 'Into the Forest', 'gold'], ['ga-red', 'Red Room', 'black'], ['ga-hands', 'Creation, Revisited', 'wood'],
+  ['ga-portrait', 'Portrait in Paint', 'gold'], ['ga-067', '067', 'pink'], ['ga-cases', 'Starry Night Cases', 'white'],
+];
+$('#gwall').innerHTML = GPREV.map(([src, t, f], i) =>
+  `<a class="gp reveal" href="gallery.html" style="--d:${i * 70}ms"><span class="fr f-${f}"><span class="mat"><img src="media/${src}.webp" alt="${t}" loading="lazy"></span></span><b>${t}</b></a>`).join('');
+
 /* ======================= about: software stars ======================= */
-const sw = [['Photoshop', 5], ['Illustrator', 4], ['After Effects', 4], ['InDesign', 3], ['Premiere Pro', 3], ['Procreate', 5], ['Blender', 3], ['Figma', 4]];
+const sw = [['Photoshop', 5], ['Illustrator', 4], ['After Effects', 4], ['InDesign', 3], ['Premiere Pro', 4], ['Procreate', 5], ['Blender', 3], ['Figma', 4], ['Unity', 3]];
 $('#sw').innerHTML = sw.map(([n, k]) => `<div>${n}<span class="stars">${[0,1,2,3,4].map(i => `<img src="media/star-icon.svg" class="${i < k ? 'on' : ''}" alt="">`).join('')}</span></div>`).join('');
 
 /* ======================= reveals ======================= */

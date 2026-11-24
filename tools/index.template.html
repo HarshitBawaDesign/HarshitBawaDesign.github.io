@@ -12,7 +12,7 @@
 <link rel="icon" href="media/hobi-side-logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=6">
+<link rel="stylesheet" href="css/site.css?v=7">
 </head>
 <body>
 
@@ -38,8 +38,7 @@
       <svg id="heroFace" viewBox="%%VB_I%%" aria-label="hobi mascot"><circle class="ring" r="0"/><g class="faceRoot">%%ICON%%</g></svg>
       <div class="roles">
         <img class="three" src="media/three-stars-logo.svg" alt="">
-        <b>Animator · Illustrator · Designer</b><br>
-        Interactive Media Design<br>Seneca Polytechnic · Toronto
+        <b>Animator · Illustrator · Designer</b>
       </div>
       <div class="name">
         <div class="hello">Hello! I'm</div>
@@ -53,7 +52,7 @@
   <!-- STATEMENT -->
   <section class="statement">
     <div class="wrap">
-      <p id="statement">I'm *hobi*, a designer, illustrator and animator with four years of freelance work. Curious, warm and always chasing the spark of a good idea. I build *brands*, *apps*, *motion* and *stories* that feel alive.</p>
+      <p id="statement">I'm *hobi*, a designer, illustrator and animator with two years of social media handling and *marketing*, and four years of freelance work. Curious, warm and always chasing the spark of a good idea. I build *brands*, *apps*, *motion* and *stories* that feel alive.</p>
       <div class="sig reveal"><img src="media/hobi-side-logo.svg" alt="">Harshit Bawa · Toronto, ON</div>
     </div>
   </section>
@@ -65,15 +64,26 @@
         <div><div class="kicker reveal"><img src="media/star-icon.svg" alt="">Selected work 2022–2026</div><h2 class="h-pink reveal">Work</h2></div>
         <div class="filters" id="filters" role="tablist">
           <button data-f="all" class="on">All</button>
-          <button data-f="vfx">VFX</button>
-          <button data-f="ux">UX/UI</button>
-          <button data-f="motion">Motion</button>
+          <button data-f="motion">Motion Graphics</button>
+          <button data-f="video">Video</button>
           <button data-f="brand">Branding & Print</button>
           <button data-f="illus">Illustration</button>
-          <button data-f="video">Video</button>
+          <button data-f="ux">UX/UI</button>
         </div>
       </div>
       <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <!-- GALLERY PREVIEW -->
+  <section class="gprev" id="gallery">
+    <div class="wrap">
+      <div class="top">
+        <div><div class="kicker reveal"><img src="media/star-icon.svg" alt="">Paintings, drawings &amp; personal pieces</div><h2 class="h-pink reveal">Gallery</h2></div>
+        <p class="reveal">Away from the case studies: the art I make, hung in frames.</p>
+      </div>
+      <div class="gwall" id="gwall"></div>
+      <div class="gcta reveal"><a class="btn" href="gallery.html">View More from Gallery <span>→</span></a></div>
     </div>
   </section>
 
@@ -83,12 +93,13 @@
   <!-- SERVICES -->
   <section class="services" id="services">
     <div class="wrap">
-      <div class="head"><h2 class="h-pink reveal">Services</h2><p class="reveal">Four things I love doing, often all in the same project.</p></div>
+      <div class="head"><h2 class="h-pink reveal">Services</h2><p class="reveal">Five things I love doing, often all in the same project.</p></div>
       <div class="svc">
         <div class="card reveal"><div class="ic"><img src="media/illustration-icon.svg" alt=""></div><h3>Illustration</h3><p>Over 10 years of drawing: sketchbooks, painted portraits, vector posters and backgrounds.</p><ul><li>Procreate</li><li>Photoshop</li><li>Illustrator</li><li>Traditional</li></ul></div>
         <div class="card reveal"><div class="ic"><img src="media/design-icon.svg" alt=""></div><h3>Design</h3><p>Brand identities, editorial layouts and UX/UI, delivered to what the client actually needs.</p><ul><li>Figma</li><li>InDesign</li><li>Branding</li><li>UX research</li></ul></div>
         <div class="card reveal"><div class="ic"><img src="media/animation-icon.svg" alt=""></div><h3>Animation & VFX</h3><p>VFX compositing, motion graphics, logo reveals, kinetic type and 2D animation. Animator on indie short films.</p><ul><li>After Effects</li><li>Compositing</li><li>Toon Boom</li><li>Premiere</li></ul></div>
-        <div class="card reveal"><div class="ic"><img src="media/3d-icon.svg" alt=""></div><h3>3D</h3><p>Over five years of 3D: modelling, look-dev and renders for product and motion work.</p><ul><li>Blender</li><li>Maya</li></ul></div>
+        <div class="card reveal"><div class="ic"><img src="media/3d-icon.svg" alt=""></div><h3>3D</h3><p>Modelling, look-dev and renders for product and motion work.</p><ul><li>Blender</li><li>Maya</li><li>Unity</li></ul></div>
+        <div class="card reveal"><div class="ic"><img src="media/video-icon.svg" alt=""></div><h3>Videography & Editing</h3><p>Shooting and editing films, reels and ads: from planning shots on set to the cut, colour, sound and final export.</p><ul><li>Premiere Pro</li><li>DaVinci Resolve</li><li>CapCut</li></ul></div>
       </div>
     </div>
   </section>
@@ -96,13 +107,17 @@
   <!-- ABOUT (his About page, carried over) -->
   <section class="about" id="about">
     <div class="wrap">
-      <div class="intro">
-        <div class="reveal">
-          <img class="wm" src="media/hobi-text-logo2.svg" alt="hobi">
-          <h2>HELLO! I am Harshit Bawa</h2>
-          <p>An illustrator, animator and interactive media designer, born and raised in India, now in Toronto. My brand, hobi, is a wordmark where the star stands for creativity and the smile for warmth, plus a mascot that looks a lot like me.</p>
+      <div class="intro card reveal">
+        <div class="photo" role="img" aria-label="Portrait photo of Harshit Bawa (coming soon)">
+          <!-- To add the portrait: replace this div's contents with <img src="media/harshit-portrait.webp" alt="Harshit Bawa"> -->
+          <span><img src="media/star-icon.svg" alt="">Photo coming soon</span>
         </div>
-        <div class="faceWrap reveal"><img src="media/hobi-side-logo.svg" alt="hobi mascot"></div>
+        <div class="txt">
+          <div class="pill">About me</div>
+          <h2>HELLO! I am <span>Harshit Bawa</span></h2>
+          <p>An illustrator, animator and interactive media designer based in Toronto.</p>
+          <div class="brand"><img class="wm" src="media/hobi-text-logo2.svg" alt="hobi"><p>My brand, <b>hobi</b>, is a wordmark where the star stands for creativity and the smile for warmth, plus a mascot that looks a lot like me.</p></div>
+        </div>
       </div>
       <div class="cards">
         <div class="card reveal">
@@ -194,7 +209,8 @@
 <div id="lb"><button class="x" id="lbX">✕</button><button class="nav prev" id="lbP">‹</button><div class="inner" id="lbIn"></div><button class="nav next" id="lbN">›</button></div>
 
 <audio id="ding" src="media/confirmation-sound.mp3" preload="auto"></audio>
-<script src="js/projects.js?v=6"></script>
-<script src="js/site.js?v=6"></script>
+<script src="js/projects.js?v=7"></script>
+<script src="js/ratios.js?v=7"></script>
+<script src="js/site.js?v=7"></script>
 </body>
 </html>

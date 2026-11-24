@@ -9,6 +9,7 @@ const ART = [
   { src: "ga-lake", title: "Lakeside", medium: "Painting", kind: "paint", frame: "gold", size: "m" },
   { src: "ga-flower", title: "Bloom", medium: "Painting", year: "2020", kind: "paint", frame: "black", size: "s" },
   { src: "ga-portrait", title: "Portrait in Paint", medium: "Digital painting", kind: "digital", frame: "gold", size: "l" },
+  { src: "pt-character", title: "Character Study", medium: "Digital painting · sketch to colour", kind: "digital", frame: "white", size: "m" },
   { src: "ga-hands", title: "Creation, Revisited", medium: "Ink · sketchbook · after Michelangelo", kind: "draw", frame: "wood", size: "m" },
   { src: "ga-gold", title: "David in Gold", medium: "Mixed media · sketchbook", kind: "draw", frame: "gold", size: "s" },
   { src: "ga-graphite", title: "Graphite Portrait", medium: "Graphite drawing", kind: "draw", frame: "white", size: "m" },
