@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Gallery — hobi · Harshit Bawa</title>
+<meta name="description" content="The hobi gallery: paintings, drawings, sketchbook pages and digital pieces by Harshit Bawa, hung in frames.">
+<meta property="og:title" content="The Gallery — hobi · Harshit Bawa">
+<meta property="og:description" content="Paintings, drawings and personal pieces on display.">
+<meta name="theme-color" content="#1D1D1B">
+<link rel="icon" href="media/hobi-side-logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/gallery.css?v=1">
+</head>
+<body>
+<div id="room">
+  <header class="gtop">
+    <a class="back" href="./">← Portfolio</a>
+    <a class="gmark" href="./" aria-label="hobi home"><img src="media/hobi-side-logo.svg" alt=""></a>
+    <a class="back ghost" href="./#contact">Contact</a>
+  </header>
+
+  <section class="ghero">
+    <svg class="chandelier" viewBox="0 0 240 230" aria-hidden="true">
+      <line x1="120" y1="0" x2="120" y2="70" />
+      <path class="arm" d="M40 112 Q120 160 200 112" />
+      <path class="arm" d="M70 96 Q120 128 170 96" />
+      <line x1="120" y1="70" x2="120" y2="132" />
+      <g class="bulbs">
+        <path class="st s1" d="M40 104l5 11 12 1-9 8 3 12-11-7-11 7 3-12-9-8 12-1z" />
+        <path class="st s2" d="M200 104l5 11 12 1-9 8 3 12-11-7-11 7 3-12-9-8 12-1z" />
+        <path class="st s3" d="M70 88l4 9 10 1-7 6 2 10-9-5-9 5 2-10-7-6 10-1z" />
+        <path class="st s4" d="M170 88l4 9 10 1-7 6 2 10-9-5-9 5 2-10-7-6 10-1z" />
+        <path class="st big" d="M120 126l8 18 20 2-15 13 5 20-18-11-18 11 5-20-15-13 20-2z" />
+      </g>
+    </svg>
+    <p class="kicker">Now showing</p>
+    <h1>The <span>hobi</span> Gallery</h1>
+    <p class="lede">Paintings, drawings, sketchbook pages and personal pieces, hung on one wall. No case studies, no process. Just the work, framed.</p>
+    <nav id="gfilters" aria-label="Filter artworks"></nav>
+  </section>
+
+  <main id="wall" aria-label="Artworks"></main>
+
+  <footer class="gfoot">
+    <p>Thanks for visiting the gallery.</p>
+    <a class="pill" href="./">Back to the portfolio</a>
+    <small>© Harshit Bawa · fan art pieces are tributes to their original creators</small>
+  </footer>
+</div>
+
+<div id="viewing" role="dialog" aria-modal="true" aria-label="Artwork viewer">
+  <button id="vClose" class="vbtn close" aria-label="Close">×</button>
+  <button id="vPrev" class="vbtn prev" aria-label="Previous">←</button>
+  <div class="vstage">
+    <div id="vFrame" class="vframe"><span class="mat"><img id="vImg" alt=""></span></div>
+    <div class="vplaque"><b id="vTitle"></b><span id="vMeta"></span><small id="vCount"></small></div>
+  </div>
+  <button id="vNext" class="vbtn next" aria-label="Next">→</button>
+</div>
+<script src="js/gallery.js?v=1"></script>
+</body>
+</html>

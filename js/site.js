@@ -325,7 +325,7 @@ function openCase(slug, push) {
   const i = PROJECTS.findIndex(p => p.slug === slug); if (i < 0) return closeCase();
   const p = PROJECTS[i], next = PROJECTS[(i + 1) % PROJECTS.length];
   current = slug;
-  const meta = [['Year', p.year], ['Role', p.role], ['Team', p.team], ['Tools', (p.tools || []).join(', ')]].filter(m => m[1]);
+  const meta = [['Year', p.year], ['Role', p.role], ['Tools', (p.tools || []).join(', ')]].filter(m => m[1]);
   caseInner.innerHTML = `
     <div class="cs-hero">
       <div class="kicker"><img src="media/star-icon.svg" alt="">${p.kicker || ''}</div>
