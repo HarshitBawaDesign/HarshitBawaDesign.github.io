@@ -391,26 +391,16 @@ svg .ring{fill:none;stroke:var(--pink);stroke-linecap:round}
 @media (max-width:1000px){.gwall{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:560px){.gwall{grid-template-columns:repeat(2,1fr)}}
 
-/* ---------- about: intro card with photo slot ---------- */
-.about .intro.card{display:grid;grid-template-columns:minmax(220px,.8fr) 1.4fr;gap:clamp(24px,4vw,56px);align-items:center;margin-bottom:56px}
-.about .photo{aspect-ratio:4/5;border-radius:var(--r-lg);background:var(--ink);border:2px dashed rgba(187,183,182,.35);display:grid;place-items:center;overflow:hidden}
-.about .photo img{width:100%;height:100%;object-fit:cover}
-.about .photo span{display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--grey);font-size:14px;letter-spacing:.14em;text-transform:uppercase}
-.about .photo span img{width:34px;height:auto;opacity:.6}
-.about .intro .txt .pill{display:inline-block;margin-bottom:18px}
-.about .intro h2{font-size:clamp(30px,3.2vw,46px);font-weight:800;line-height:1.05}
-.about .intro h2 span{color:var(--pink)}
+/* ---------- about: sticker portrait ---------- */
+.about .intro .faceWrap img.sticker{width:min(400px,86%);height:auto;filter:drop-shadow(0 10px 0 var(--grey)) drop-shadow(0 22px 30px rgba(0,0,0,.45));transform:rotate(4deg)}
+.about .intro .faceWrap img.sticker:hover{transform:rotate(-3deg) scale(1.04)}
 .about .intro p{color:#e2dfde;font-size:clamp(17px,1.35vw,20px);line-height:1.6;max-width:620px;margin-top:14px}
-.about .intro .brand{display:flex;align-items:center;gap:22px;margin-top:26px;padding-top:24px;border-top:2px solid rgba(255,255,255,.08)}
-.about .intro .brand .wm{width:clamp(110px,12vw,160px);flex:none;margin:0}
-.about .intro .brand p{margin:0;font-size:clamp(16px,1.2vw,18px)}
 /* readable body text across About + Why hire me */
 .exp h4{font-size:20px}
 .exp p{font-size:16px}
 .exp ul{font-size:16px;line-height:1.55}
 .sw div{font-size:17px}
 .why .card p{font-size:clamp(17px,1.35vw,20px);line-height:1.6;font-style:normal}
-@media (max-width:860px){.about .intro.card{grid-template-columns:1fr}.about .photo{max-width:340px;width:100%;margin:0 auto}.about .intro .brand{flex-direction:column;align-items:flex-start}}
 /* five service cards */
 @media (min-width:1201px){.svc{grid-template-columns:repeat(5,1fr)}}
 @media (min-width:1001px) and (max-width:1200px){.svc{grid-template-columns:repeat(3,1fr)}}
