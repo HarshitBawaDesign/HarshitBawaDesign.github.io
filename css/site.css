@@ -392,8 +392,8 @@ svg .ring{fill:none;stroke:var(--pink);stroke-linecap:round}
 @media (max-width:560px){.gwall{grid-template-columns:repeat(2,1fr)}}
 
 /* ---------- about: sticker portrait ---------- */
-.about .intro .faceWrap img.sticker{width:min(400px,86%);height:auto;filter:drop-shadow(0 10px 0 var(--grey)) drop-shadow(0 22px 30px rgba(0,0,0,.45));transform:rotate(4deg)}
-.about .intro .faceWrap img.sticker:hover{transform:rotate(-3deg) scale(1.04)}
+.about .intro .faceWrap img.sticker{width:min(440px,90%);height:auto;filter:drop-shadow(0 10px 0 var(--grey)) drop-shadow(0 22px 30px rgba(0,0,0,.45));transform:rotate(-3deg)}
+.about .intro .faceWrap img.sticker:hover{transform:rotate(2deg) scale(1.04)}
 .about .intro p{color:#e2dfde;font-size:clamp(17px,1.35vw,20px);line-height:1.6;max-width:620px;margin-top:14px}
 /* readable body text across About + Why hire me */
 .exp h4{font-size:20px}
