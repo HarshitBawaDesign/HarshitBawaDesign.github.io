@@ -404,3 +404,10 @@ svg .ring{fill:none;stroke:var(--pink);stroke-linecap:round}
 /* five service cards */
 @media (min-width:1201px){.svc{grid-template-columns:repeat(5,1fr)}}
 @media (min-width:1001px) and (max-width:1200px){.svc{grid-template-columns:repeat(3,1fr)}}
+
+/* about: Experience, Education and Software each get a full-width row */
+.cards{grid-template-columns:1fr;gap:36px}
+.cards .pill{width:auto;min-width:200px;margin-bottom:26px}
+.cards .exp{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px 40px}
+.cards .sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px 48px}
+.cards .sw div{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
