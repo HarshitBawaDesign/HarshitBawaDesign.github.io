@@ -294,6 +294,21 @@ const GPREV = [
 $('#gwall').innerHTML = GPREV.map(([src, t, f], i) =>
   `<a class="gp reveal" href="gallery.html" style="--d:${i * 70}ms"><span class="fr f-${f}"><span class="mat"><img src="media/${src}.webp" alt="${t}" loading="lazy"></span></span><b>${t}</b></a>`).join('');
 
+/* ======================= live caricatures: polaroid wall ======================= */
+// each entry is a photo, or [person, their caricature] shown side by side
+const CARI_LAYOUT = [[1, 11], 3, 4, 9, 10, 7, [6, 5], 13, 15, 2, 12, 16, 8, [17, 14], 18];
+const ccSrc = n => `media/cc-${String(n).padStart(2, '0')}.webp`;
+const CARI = CARI_LAYOUT.flat().map(ccSrc);
+let ci = 0;
+const pola = (n, extra = '') => `<button class="pola${extra}" data-i="${ci++}" aria-label="Open caricature photo"><img src="${ccSrc(n)}" alt="Caricature by Harshit at a Seneca club event" loading="lazy"></button>`;
+$('#polas').innerHTML = CARI_LAYOUT.map((u, i) => {
+  const st = `style="--r:${[-4, 3, -2, 5, -3, 2][i % 6]}deg;--d:${(i % 6) * 60}ms"`;
+  return Array.isArray(u)
+    ? `<div class="pair reveal" ${st}>${pola(u[0])}<span class="pair-star"><img src="media/star-icon.svg" alt=""></span>${pola(u[1], ' card')}</div>`
+    : `<div class="solo reveal" ${st}>${pola(u)}</div>`;
+}).join('');
+$$('#polas .pola').forEach(b => b.addEventListener('click', () => openLightbox({ gallery: CARI, title: 'Live caricatures · Seneca Design Innovators' }, +b.dataset.i)));
+
 /* ======================= about: software stars ======================= */
 const sw = [['Photoshop', 5], ['Illustrator', 4], ['After Effects', 4], ['InDesign', 3], ['Premiere Pro', 4], ['Procreate', 5], ['Blender', 3], ['Figma', 4], ['Unity', 3]];
 $('#sw').innerHTML = sw.map(([n, k]) => `<div>${n}<span class="stars">${[0,1,2,3,4].map(i => `<img src="media/star-icon.svg" class="${i < k ? 'on' : ''}" alt="">`).join('')}</span></div>`).join('');
