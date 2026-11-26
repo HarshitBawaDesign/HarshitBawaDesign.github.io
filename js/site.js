@@ -288,7 +288,7 @@ let mqX = 0, vel = 0, prevY = scrollY;
 
 /* ======================= gallery preview (full wall lives on gallery.html) ======================= */
 const GPREV = [
-  ['ga-forest', 'Into the Forest', 'gold'], ['ga-red', 'Red Room', 'black'], ['ga-hands', 'Creation, Revisited', 'wood'],
+  ['ga-lake', 'Lakeside', 'gold'], ['ga-red', 'Red Room', 'black'], ['ga-hands', 'Creation, Revisited', 'wood'],
   ['ga-portrait', 'Portrait in Paint', 'gold'], ['ga-067', '067', 'pink'], ['ga-cases', 'Starry Night Cases', 'white'],
 ];
 $('#gwall').innerHTML = GPREV.map(([src, t, f], i) =>
@@ -336,9 +336,29 @@ $('#form').addEventListener('submit', e => {
   if (bad) { err.textContent = bad.type === 'email' && bad.value ? 'Please enter a valid email.' : 'Please fill in every field.'; bad.focus();
     bad.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-6px)' }, { transform: 'translateX(6px)' }, { transform: 'translateX(0)' }], { duration: 300 }); return; }
   err.textContent = '';
-  const ding = $('#ding'); try { ding.currentTime = 0; ding.play().catch(() => {}); } catch (x) {}
-  $('#sentMsg').innerHTML = `Thanks ${f.first.value.trim()}! This site can't send mail by itself yet, so please also email <b style="color:#fff">${EMAIL}</b>. I'll get back to you soon.`;
-  $('#sent').classList.add('on'); f.reset();
+  if (f._honey && f._honey.value) return; // spam bot filled the hidden field
+  const btn = f.querySelector('button[type=submit]'), label = btn.textContent;
+  btn.disabled = true; btn.textContent = 'Sending…';
+  const first = f.first.value.trim();
+  // FormSubmit (formsubmit.co) relays the message to Harshit's inbox; no server needed
+  fetch(`https://formsubmit.co/ajax/${EMAIL}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({
+      name: `${first} ${f.last.value.trim()}`, email: f.email.value.trim(), message: f.msg.value.trim(),
+      _subject: `Portfolio message from ${first} ${f.last.value.trim()}`, _replyto: f.email.value.trim(), _template: 'table', _captcha: 'false'
+    })
+  }).then(r => r.json().then(j => ({ ok: r.ok && String(j.success) !== 'false', j })))
+    .then(({ ok, j }) => {
+      if (!ok) throw new Error(j && j.message || 'send failed');
+      const ding = $('#ding'); try { ding.currentTime = 0; ding.play().catch(() => {}); } catch (x) {}
+      $('#sentMsg').innerHTML = `Thanks ${first}! Your message is on its way to me. I'll get back to you soon.`;
+      $('#sent').classList.add('on'); f.reset();
+    })
+    .catch(() => {
+      err.innerHTML = `Something went wrong sending your message. Please email me directly at <a href="mailto:${EMAIL}" style="color:var(--pink)">${EMAIL}</a>.`;
+    })
+    .finally(() => { btn.disabled = false; btn.textContent = label; });
 });
 $('#sentOk').addEventListener('click', () => $('#sent').classList.remove('on'));
 

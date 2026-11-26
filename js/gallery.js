@@ -1,13 +1,10 @@
 /* hobi gallery — the art wall. Edit this list to add, remove or retitle pieces.
    frame: gold | black | wood | white | pink     size: s | m | l      kind: paint | draw | digital | fan */
 const ART = [
-  { src: "ga-forest", title: "Into the Forest", medium: "Painting", kind: "paint", frame: "gold", size: "l" },
   { src: "ga-red", title: "Red Room", medium: "Portrait study", kind: "digital", frame: "black", size: "m" },
-  { src: "ga-street", title: "Autumn Street", medium: "Painting", year: "2019", kind: "paint", frame: "gold", size: "s" },
   { src: "ga-twofaces", title: "Two Halves", medium: "Graphite drawing", kind: "draw", frame: "black", size: "m" },
   { src: "ga-kiss", title: "The Kiss", medium: "Ink and colour · sketchbook", kind: "draw", frame: "wood", size: "m" },
   { src: "ga-lake", title: "Lakeside", medium: "Painting", kind: "paint", frame: "gold", size: "m" },
-  { src: "ga-flower", title: "Bloom", medium: "Painting", year: "2020", kind: "paint", frame: "black", size: "s" },
   { src: "ga-portrait", title: "Portrait in Paint", medium: "Digital painting", kind: "digital", frame: "gold", size: "l" },
   { src: "pt-character", title: "Character Study", medium: "Digital painting · sketch to colour", kind: "digital", frame: "white", size: "m" },
   { src: "ga-hands", title: "Creation, Revisited", medium: "Ink · sketchbook · after Michelangelo", kind: "draw", frame: "wood", size: "m" },
