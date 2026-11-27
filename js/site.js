@@ -199,6 +199,10 @@ const items = [...PROJECTS.map(p => ({ ...p, case: true })), ...EXTRAS];
 const order = []; let ei = PROJECTS.length;
 PROJECTS.forEach((p, i) => { order.push(i); if (i % 2 === 1 && ei < items.length) order.push(ei++); });
 while (ei < items.length) order.push(ei++);
+// featured first, in this exact order; everything else keeps its place below
+const FEATURED = ['see-you-again', 'what-the-fudge', 'showreel', 'welcome-to-toronto', 'got-lost', 'the-night-we-met', 'solsip', 'hobi logo reveal', 'ps5-logo', 'joji-magazine', 'football-legends'];
+const fIdx = FEATURED.map(k => items.findIndex(it => it.slug === k || it.title === k)).filter(i => i >= 0);
+order.splice(0, order.length, ...fIdx, ...order.filter(i => !fIdx.includes(i)));
 const catLabel = { ux: 'UX/UI', motion: 'Motion Graphics', brand: 'Branding & Print', illus: 'Illustration', video: 'Video' };
 // VFX and Motion are one category now: Motion Graphics
 items.forEach(it => { it.cat = [...new Set(it.cat.map(c => c === 'vfx' ? 'motion' : c))]; });
@@ -227,6 +231,7 @@ function layoutGrid() {
     const it = items[+t.dataset.idx];
     let ar = (typeof RATIOS !== 'undefined' && RATIOS[it.cover]) || (it.textTile ? .8 : 1);
     ar = Math.min(2.1, Math.max(.62, ar));
+    if (cols >= 2 && fIdx.includes(+t.dataset.idx)) ar = Math.max(ar, 1.25); // featured: always a wide tile so the order stays clean
     const span = cols >= 2 && ar >= 1.2 ? 2 : 1, w = span * colW + (span - 1) * gap, h = w / ar;
     t.style.gridColumn = `span ${span}`;
     t.style.gridRow = `span ${Math.ceil((h + rowGap) / ROW)}`;
