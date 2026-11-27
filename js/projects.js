@@ -351,7 +351,8 @@ window.PROJECTS = [
     tools: ["DaVinci Resolve"],
     sections: [
       { type: "text", title: "A true crime story", body: "A tongue-in-cheek Netflix-style documentary, with behind-the-scenes at the end. Inspired by Paul E.T.'s “You Can Make a Netflix Style Doco About Literally Anything”. Music: “Penumbra” by Hannah Parrott (MusicBed)." },
-      { type: "link", label: "Watch on YouTube ↗", href: "https://www.youtube.com/watch?v=Ve9ttTnpR6E" },
+      { type: "yt", id: "Ve9ttTnpR6E", title: "What the Fudge", meta: [["Runtime", "4:35"], ["Format", "Mock true-crime documentary"], ["Edit", "DaVinci Resolve"], ["Music", "“Penumbra” by Hannah Parrott (MusicBed)"]] },
+      { type: "stills", title: "Cinematic stills", items: [1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => M(`st-fudge-0${n}.webp`)) },
     ],
   },
 ];
